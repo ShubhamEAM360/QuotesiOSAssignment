@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Author" representedClassName="Author" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="text" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Quotes" inverseName="author" inverseEntity="Quotes"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="categories" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="text" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Quotes" inverseName="category" inverseEntity="Quotes"/>
+    </entity>
+    <entity name="Quotes" representedClassName="Quotes" syncable="YES" codeGenerationType="class">
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="author" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Author" inverseName="text" inverseEntity="Author"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="text" inverseEntity="Category"/>
+    </entity>
+    <elements>
+        <element name="Author" positionX="286.38671875" positionY="50.453125" width="128" height="73"/>
+        <element name="Category" positionX="-134.37109375" positionY="13.35546875" width="128" height="74"/>
+        <element name="Quotes" positionX="-458.48046875" positionY="319.375" width="128" height="88"/>
+    </elements>
+</model>
